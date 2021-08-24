@@ -4,6 +4,7 @@
 }
 .list {
     display: flex;
+    align-items: center;
     transition: all 1s;
     transform: translate(-340px, 0px);
 }
@@ -22,6 +23,12 @@
     color:blue;
     text-decoration: underline;
 }
+.menu {
+    font-size: 24px;
+    font-weight: 700;
+    cursor: pointer;
+}
+
 .header_trigger {
     width: 0;
     height: 0;
@@ -44,6 +51,10 @@
 .header_trigger.right:hover{
     border-right: 30px solid #8c8d8c;
 }
+
 .list.active {
     transform: translate(0px, 0px);
+}
+.menu.active{
+    display: none;
 }

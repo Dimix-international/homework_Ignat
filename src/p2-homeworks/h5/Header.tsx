@@ -10,6 +10,7 @@ function Header() {
         setActive(!active)
     }
     const classNameTrigger = active ? `${s.header_trigger} ${s.right}` : `${s.header_trigger} ${s.left}`;
+    const classNameMenu = active ? `${s.menu} ${s.active}` : `${s.menu}`;
     return (
         <div className={s.header}>
             <ul className={active ? `${s.list} ${s.active}` : s.list }>
@@ -27,6 +28,9 @@ function Header() {
                     <NavLink to={PATH.JUNIOR_PLUS}>
                         JUNIOR-PLUS
                     </NavLink>
+                </li>
+                <li className={classNameMenu} onClick={onChangeHeader}>
+                    Меню
                 </li>
                 <li
                     className={classNameTrigger}
