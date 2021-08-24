@@ -1,3 +1,18 @@
-.someClass {
-
+.content {
+    width: 300px;
+    padding: 0px 30px;
 }
+.body {
+    border: 1px solid darkgrey;
+    border-bottom: none;
+    margin-bottom: 10px;
+}
+.buttons {
+    display: grid;
+    grid-template: 1fr / repeat(4, 1fr);
+    height: 30px;
+    column-gap: 5px;
+}
+.buttons button{
+    cursor: pointer;
+ }
