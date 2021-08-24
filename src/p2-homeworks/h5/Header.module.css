@@ -1,0 +1,49 @@
+.header{
+    display: flex;
+    align-items: center;
+}
+.list {
+    display: flex;
+    transition: all 1s;
+    transform: translate(-340px, 0px);
+}
+.list li{
+ list-style-type: none;
+}
+.list li a {
+    display: inline-block;
+    cursor: pointer;
+    padding: 0 10px;
+    text-decoration: none;
+    color:#000;
+    transition: all 0.5s;
+}
+.list li:hover a {
+    color:blue;
+    text-decoration: underline;
+}
+.header_trigger {
+    width: 0;
+    height: 0;
+    border-top: 15px solid transparent;
+    border-bottom: 15px solid transparent;
+    cursor: pointer;
+    margin-left: 10px;
+    transition: all 0.5s;
+}
+
+.header_trigger.left {
+    border-left: 30px solid green;
+}
+.header_trigger.right {
+    border-right: 30px solid green;
+}
+.header_trigger.left:hover{
+    border-left: 30px solid #8c8d8c;
+}
+.header_trigger.right:hover{
+    border-right: 30px solid #8c8d8c;
+}
+.list.active {
+    transform: translate(0px, 0px);
+}

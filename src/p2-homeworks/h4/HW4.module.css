@@ -1,0 +1,25 @@
+.blue {
+    border: 1px solid blue;
+}
+.column {
+    display: flex;
+    flex-direction: column;
+    padding: 50px;
+}
+.testSpanError {
+    font-size: 18px;
+    font-weight: 700;
+    margin-left: 5px;
+}
+
+.button{
+    display: inline-block;
+    width: 100px;
+    height: 30px;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    cursor: pointer;
+}
+.checkbox {
+    display: none;
+}

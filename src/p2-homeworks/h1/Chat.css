@@ -1,0 +1,10 @@
+.chat{
+
+}
+.chat__title {
+    text-align: center;
+}
+.chat__container{
+    max-width: 1000px;
+    margin: 0 auto;
+}
