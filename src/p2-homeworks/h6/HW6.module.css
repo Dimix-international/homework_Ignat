@@ -1,0 +1,14 @@
+.hw6 {
+    padding: 20px;
+}
+.btn {
+    width: 70px;
+    height: 30px;
+    margin-right: 10px;
+    border-radius: 2px;
+    background-color: #939393;
+    cursor: pointer;
+}
+.btn:hover{
+    background-color: #c6c5c5;
+}
