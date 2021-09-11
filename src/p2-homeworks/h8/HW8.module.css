@@ -1,0 +1,29 @@
+.body{
+    padding: 30px;
+}
+.container {
+    width: 200px;
+    border: 1px solid black;
+    border-bottom: none;
+    margin-bottom: 10px;
+}
+
+.list {
+    display: grid;
+    grid-template: 1fr / 150px 50px;
+    grid-template-areas: 'name age';
+    border-bottom: 1px solid black;
+}
+.name, .age {
+    text-align: center;
+    font-size: 18px;
+    padding: 3px;
+}
+.name {
+    grid-area: name;
+    border-right: 1px solid black;
+}
+
+.age {
+    grid-area: age;
+}
