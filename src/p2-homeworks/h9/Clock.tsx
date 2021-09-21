@@ -1,50 +1,82 @@
-import React, {useState} from 'react'
+import React, {useEffect, useState} from 'react'
 import SuperButton from '../h4/common/c2-SuperButton/SuperButton'
+import s from './Clock.module.css'
 
 function Clock() {
     const [timerId, setTimerId] = useState<number>(0)
-    const [date, setDate] = useState<Date>()
+    const [date, setDate] = useState<Date>(new Date())
     const [show, setShow] = useState<boolean>(false)
 
+    let sec = date.getSeconds();
+    let minutes = date.getMinutes();
+    let hours = date.getHours();
+
+    let classSeconds = s.block;
+    let finalClassSecondsValue = s.number;
+
+
     const stop = () => {
-        // stop
+        clearInterval(timerId);
     }
+
+    if(sec % 2 !== 0) {
+        console.log(sec, 'sec % 2 !== 0')
+        classSeconds = `${s.block} ${s.effect}`
+        finalClassSecondsValue = `${s.number} ${s.effect}`
+    }
+
     const start = () => {
         stop()
         const id: number = window.setInterval(() => {
-            // setDate
+            setDate(new Date());
         }, 1000)
         setTimerId(id)
     }
 
     const onMouseEnter = () => {
-        // show
+        setShow(true)
     }
     const onMouseLeave = () => {
-        // close
+        setShow(false)
     }
-
-    const stringTime = 'Time' // fix with date
-    const stringDate = 'Date' // fix with date
-
+    const finalTime = (value: number) => {
+        let valueString = String(value);
+        if(valueString.length < 2) {
+            valueString = `0${value}`
+        }
+        return valueString
+    }
+    // const stringTime = `${finalTime(date.getHours())} : ${finalTime(date.getMinutes())} : ${finalTime(date.getSeconds())}`
+    const stringDate = date.toLocaleDateString();
     return (
         <div>
-            <div
-                onMouseEnter={onMouseEnter}
-                onMouseLeave={onMouseLeave}
-            >
-                {stringTime}
-            </div>
-
-            {show && (
-                <div>
-                    {stringDate}
+            homeworks 9 - clock
+            <div className={s.container}>
+                <div
+                    className={s.clock}
+                    onMouseEnter={onMouseEnter}
+                    onMouseLeave={onMouseLeave}
+                >
+                    {/*{stringTime}*/}
+                    <div className={s.block}><span>{finalTime(hours)}</span></div>
+                    <div className={s.block}><span>{finalTime(minutes)}</span></div>
+                    <div className={classSeconds}><span className={finalClassSecondsValue}>
+                        {finalTime(sec)}
+                    </span></div>
                 </div>
-            )}
 
-            <SuperButton onClick={start}>start</SuperButton>
-            <SuperButton onClick={stop}>stop</SuperButton>
+                {show && (
+                    <div className={s.date}>
+                        {stringDate}
+                    </div>
+                )}
 
+                <div>
+                    <SuperButton className={s.btn} onClick={start}>start</SuperButton>
+                    <SuperButton className={s.btn} onClick={stop}>stop</SuperButton>
+                </div>
+
+            </div>
         </div>
     )
 }

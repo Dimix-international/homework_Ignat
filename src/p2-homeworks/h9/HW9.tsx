@@ -5,10 +5,10 @@ function HW9() {
     return (
         <div>
             <hr/>
-            homeworks 9
-
             {/*should work (должно работать)*/}
-            <Clock/>
+            <div style={{padding:'20px'}}>
+                <Clock/>
+            </div>
 
             <hr/>
             {/*для личного творчества, могу проверить*/}
