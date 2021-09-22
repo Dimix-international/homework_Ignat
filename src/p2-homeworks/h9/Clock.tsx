@@ -14,15 +14,27 @@ function Clock() {
     let classSeconds = s.block;
     let finalClassSecondsValue = s.number;
 
+    let classMinute= `${s.block} ${s.ceil}`;
+    let valueMinute =`${s.number} ${s.value_ceil}`;
+
+    let classHours= `${s.block} ${s.ceil}`;
+    let valueHours=`${s.number} ${s.value_ceil}`;
 
     const stop = () => {
         clearInterval(timerId);
     }
 
     if(sec % 2 !== 0) {
-        console.log(sec, 'sec % 2 !== 0')
         classSeconds = `${s.block} ${s.effect}`
         finalClassSecondsValue = `${s.number} ${s.effect}`
+    }
+    if(sec === 0 ){
+        classMinute= `${s.block} ${s.ceil} ${s.play}`;
+        valueMinute =`${s.number} ${s.value_ceil} ${s.play}`;
+    }
+    if(minutes === 0 ){
+        classHours= `${s.block} ${s.ceil} ${s.play}`;
+        valueHours =`${s.number} ${s.value_ceil} ${s.play}`;
     }
 
     const start = () => {
@@ -58,11 +70,9 @@ function Clock() {
                     onMouseLeave={onMouseLeave}
                 >
                     {/*{stringTime}*/}
-                    <div className={s.block}><span>{finalTime(hours)}</span></div>
-                    <div className={s.block}><span>{finalTime(minutes)}</span></div>
-                    <div className={classSeconds}><span className={finalClassSecondsValue}>
-                        {finalTime(sec)}
-                    </span></div>
+                    <div className={classHours}><span className={valueHours}>{finalTime(hours)}</span></div>
+                    <div className={classMinute}><span className={valueMinute}>{finalTime(minutes)}</span></div>
+                    <div className={classSeconds}><span className={finalClassSecondsValue}>{finalTime(sec)}</span></div>
                 </div>
 
                 {show && (
