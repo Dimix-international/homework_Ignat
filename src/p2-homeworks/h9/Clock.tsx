@@ -6,13 +6,16 @@ function Clock() {
     const [timerId, setTimerId] = useState<number>(0)
     const [date, setDate] = useState<Date>(new Date())
     const [show, setShow] = useState<boolean>(false)
+    let[play,setPlay] = useState((false));
 
     let sec = date.getSeconds();
     let minutes = date.getMinutes();
     let hours = date.getHours();
 
-    let classSeconds = s.block;
-    let finalClassSecondsValue = s.number;
+
+    let classSeconds = `${s.block} ${s.ceil}`;
+    let valueSeconds = `${s.number} ${s.value_ceil}`;
+
 
     let classMinute= `${s.block} ${s.ceil}`;
     let valueMinute =`${s.number} ${s.value_ceil}`;
@@ -22,11 +25,12 @@ function Clock() {
 
     const stop = () => {
         clearInterval(timerId);
+        setPlay(false)
     }
 
-    if(sec % 2 !== 0) {
-        classSeconds = `${s.block} ${s.effect}`
-        finalClassSecondsValue = `${s.number} ${s.effect}`
+    if(play) {
+        classSeconds = `${s.block} ${s.ceil} ${s.play}`;
+        valueSeconds = `${s.number} ${s.value_ceil} ${s.play}`;
     }
     if(sec === 0 ){
         classMinute= `${s.block} ${s.ceil} ${s.play}`;
@@ -39,6 +43,7 @@ function Clock() {
 
     const start = () => {
         stop()
+        setPlay(true)
         const id: number = window.setInterval(() => {
             setDate(new Date());
         }, 1000)
@@ -72,7 +77,7 @@ function Clock() {
                     {/*{stringTime}*/}
                     <div className={classHours}><span className={valueHours}>{finalTime(hours)}</span></div>
                     <div className={classMinute}><span className={valueMinute}>{finalTime(minutes)}</span></div>
-                    <div className={classSeconds}><span className={finalClassSecondsValue}>{finalTime(sec)}</span></div>
+                    <div className={classSeconds}><span className={valueSeconds}>{finalTime(sec)}</span></div>
                 </div>
 
                 {show && (
