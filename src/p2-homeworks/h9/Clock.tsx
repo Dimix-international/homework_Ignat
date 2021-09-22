@@ -32,7 +32,7 @@ function Clock() {
         classMinute= `${s.block} ${s.ceil} ${s.play}`;
         valueMinute =`${s.number} ${s.value_ceil} ${s.play}`;
     }
-    if(minutes === 0 ){
+    if(minutes === 0 && sec === 0 ){
         classHours= `${s.block} ${s.ceil} ${s.play}`;
         valueHours =`${s.number} ${s.value_ceil} ${s.play}`;
     }
