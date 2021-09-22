@@ -13,8 +13,8 @@ function Clock() {
     let hours = date.getHours();
 
 
-    let classSeconds = `${s.block} ${s.ceil}`;
-    let valueSeconds = `${s.number} ${s.value_ceil}`;
+    let classSeconds = `${s.block}`;
+    let valueSeconds = `${s.number}`;
 
 
     let classMinute= `${s.block} ${s.ceil}`;
@@ -42,7 +42,6 @@ function Clock() {
     }
 
     const start = () => {
-        stop()
         setPlay(true)
         const id: number = window.setInterval(() => {
             setDate(new Date());
