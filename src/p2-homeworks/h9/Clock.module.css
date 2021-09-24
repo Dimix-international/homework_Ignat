@@ -55,19 +55,13 @@
 .ceil {
     animation-name: turn-ceil;
     animation-duration: 1s;
-    animation-play-state: paused;
     animation-iteration-count: infinite;
-}
-.ceil.play{
     animation-play-state:running;
 }
-
 .value_ceil {
     animation-name: turn-ceil-value;
     animation-duration: 1s;
-    animation-play-state: paused;
     animation-iteration-count: infinite;
-}
-.value_ceil.play{
     animation-play-state:running;
 }
+

@@ -1,14 +1,29 @@
-const initState = {
-
+enum ACTION_TYPES {
+    IS_LOADING= 'isLoading/IS_LOADING',
 }
 
-export const loadingReducer = (state = initState, action: any): any => { // fix any
+type InitStateType = {
+    isLoading:boolean
+}
+const initState = {
+    isLoading:false
+}
+export type ActionType = LoadingType
+export const loadingReducer = (state:InitStateType = initState, action: ActionType): InitStateType => { // fix any
     switch (action.type) {
-        case '': {
-            return state
-        }
+        case ACTION_TYPES.IS_LOADING:
+            return {...state, isLoading:action.isLoading}
         default: return state
     }
 }
 
-export const loadingAC = (): any => {} // fix any
+type LoadingType = {
+    type: ACTION_TYPES.IS_LOADING,
+    isLoading:boolean
+}
+export const loadingAC = (isLoading:boolean):LoadingType => {
+    return {
+        type: ACTION_TYPES.IS_LOADING,
+        isLoading,
+    }
+}

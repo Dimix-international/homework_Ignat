@@ -6,7 +6,7 @@ function Clock() {
     const [timerId, setTimerId] = useState<number>(0)
     const [date, setDate] = useState<Date>(new Date())
     const [show, setShow] = useState<boolean>(false)
-    let[play,setPlay] = useState((false));
+    const[play,setPlay] = useState((false));
 
     let sec = date.getSeconds();
     let minutes = date.getMinutes();
@@ -29,16 +29,16 @@ function Clock() {
     }
 
     if(play) {
-        classSeconds = `${s.block} ${s.ceil} ${s.play}`;
-        valueSeconds = `${s.number} ${s.value_ceil} ${s.play}`;
+        classSeconds = `${s.block} ${s.ceil}`;
+        valueSeconds = `${s.number} ${s.value_ceil}`;
     }
     if(sec === 0 ){
-        classMinute= `${s.block} ${s.ceil} ${s.play}`;
-        valueMinute =`${s.number} ${s.value_ceil} ${s.play}`;
+        classMinute= `${s.block} ${s.ceil}`;
+        valueMinute =`${s.number} ${s.value_ceil}`;
     }
     if(minutes === 0 && sec === 0 ){
-        classHours= `${s.block} ${s.ceil} ${s.play}`;
-        valueHours =`${s.number} ${s.value_ceil} ${s.play}`;
+        classHours= `${s.block} ${s.ceil}`;
+        valueHours =`${s.number} ${s.value_ceil}`;
     }
 
     const start = () => {
