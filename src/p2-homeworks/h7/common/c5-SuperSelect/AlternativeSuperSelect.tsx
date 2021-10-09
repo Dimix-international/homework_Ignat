@@ -19,7 +19,6 @@ export const AlternativeSuperSelect: React.FC<AlternativeSuperSelectType> = Reac
 
     const hoveredElement = tasks.find(t => t.id === hoverElID);
     const selectedItem = tasks.find(t => t.id === value);
-
     const toggleSelect = () => {
         setActive(!active)
     }

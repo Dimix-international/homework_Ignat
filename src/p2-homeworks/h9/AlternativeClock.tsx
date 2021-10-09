@@ -1,13 +1,9 @@
 import React from 'react'
 
-function AlternativeClock() {
-
-
+export const AlternativeClock =() =>{
     return (
         <div>
 
         </div>
     )
 }
-
-export default AlternativeClock
