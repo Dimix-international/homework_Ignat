@@ -28,17 +28,16 @@ export const Request = () => {
                 case NAME_REQUESTS.SEND:
                     setToggleAnswer(true);
                     try {
-                        const data = await requestAPI.post(checked);
-                        return setAnswer(data.data.errorText);
+                        const {data} = await requestAPI.post(checked);
+                        return setAnswer(data.errorText);
                     } catch (error) {
                         return setAnswer((error.response as AxiosResponse<ResponsePostType>).data.errorText)
                     }
                 case NAME_REQUESTS.GET:
                     setToggleAnswer(false);
                     try {
-                        const data = await requestAPI.get();
-                        console.log(data.data.users);
-                        return setUsers(data.data.users.map(u => {
+                        const {data} = await requestAPI.get();
+                        return setUsers(data.users.map(u => {
                             return {
                                 email: u.email,
                                 name: u.name,
